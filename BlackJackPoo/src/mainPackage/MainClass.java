@@ -1,12 +1,16 @@
 package mainPackage;
 import java.util.*;
 import players.*;
+import baralho.*;
 
 public class MainClass {
 
 	public static void main(String[] args) {
 		Player[] players;
 		Scanner scan = new Scanner(System.in);
+		Baralho baralho = new Baralho();
+		
+		baralho.embaralhar();
 		
 		int numJogadores;
 		System.out.print("Digite o número de participantes: ");
@@ -21,7 +25,6 @@ public class MainClass {
 			players[i] = new Player();
 			players[i].setarNick(scan.nextLine());
 		}
-		
 		scan.close();
 	}
 }
