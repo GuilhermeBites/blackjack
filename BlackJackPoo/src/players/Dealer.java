@@ -5,7 +5,7 @@ public class Dealer {
 	String name = "Dealer";
 	double pot;
 	boolean status;
-	int numCartas;
+	int numCartas=0;
 	Carta[] mao;
 	
 	public Dealer(){
@@ -23,5 +23,10 @@ public class Dealer {
 		mao[numCartas] = new Carta();
 		mao[numCartas] = carta;
 		numCartas++;
+	}
+	public void mostrarBaralho() {
+		for(Carta x : mao) {
+			x.exibirCarta();
+		}
 	}
 }

@@ -4,10 +4,9 @@ import java.util.*;
 
 
 public class Baralho {	
-	Carta[] cartas;
-	int Valor;
-	int naipe;
-	boolean tmp = false;
+	private Carta[] cartas;
+	private int cont=0;
+	private boolean tmp = false;
 	
 	Random gera = new Random();
 	
@@ -17,17 +16,17 @@ public class Baralho {
 			Carta novaCarta = new Carta();
 			do {
 				novaCarta.setValor(gera.nextInt(13)+1, gera.nextInt(4));
-			//	System.out.println(novaCarta.getNaipe() + novaCarta.getValor());
-				for(Carta x : cartas) {
-					if((x.getNaipe() == novaCarta.getNaipe()) && (x.getValor() == novaCarta.getValor())) tmp = true;
-				//	System.out.println("Teste");
-				}
-			}while(tmp==true);
+			}while(tmp == true);
 			cartas[i] = novaCarta;
 		}
 	}
 	
+	public Carta pegarCarta() {
+		cont++;
+		return cartas[cont];
+	}
+	
 	public void mostrarBaralho() {
-		for(Carta x : cartas) System.out.println(x.exibirCarta());
+		for(Carta x : cartas) System.out.println(x.getValor() + x.getNaipe());
 	}
 }

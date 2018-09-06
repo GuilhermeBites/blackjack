@@ -2,11 +2,11 @@ package players;
 import baralho.*;
 
 public class Player {
-	String nickName;
-	double saldo;
-	boolean status;
-	int numCartas;
-	Carta[] mao;
+	private String nickName;
+	private double saldo;
+	private boolean status;
+	private int numCartas;
+	private Carta[] mao;
 	
 	public Player() {
 		saldo = 1000.0;
@@ -15,6 +15,10 @@ public class Player {
 	
 	public void setarNick(String nome) {
 		this.nickName = nome;
+	}
+	
+	public String getNick() {
+		return nickName;
 	}
 	
 	public void retirarSaldo(double aposta) {
@@ -31,6 +35,12 @@ public class Player {
 		mao[numCartas] = new Carta();
 		mao[numCartas] = carta;
 		numCartas++;
+		}
+	}
+	
+	public void mostrarMao() {
+		for(int i=0;i<mao.length;i++) {
+			System.out.println(mao[i]);
 		}
 	}
 }

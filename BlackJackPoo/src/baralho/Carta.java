@@ -1,10 +1,10 @@
 package baralho;
 
 public class Carta {
-	String valor;
-	String naipe;
-	int valor2;
-	int naipe2;
+	protected String valor;
+	protected String naipe;
+	protected int valor2;
+	protected int naipe2;
 	
 	protected void setValor(int valor,int naipe) {
 		if(naipe == 0) this.naipe = "Copas";
@@ -18,14 +18,13 @@ public class Carta {
 		else this.valor = Integer.toString(valor);
 	}
 	
-	protected boolean exibirCarta() {
+	public void exibirCarta() {
 		System.out.println(valor + naipe);
-		return true;
 	}
-	protected String getValor() {
+	public String getValor() {
 		return valor;
 	}
-	protected String getNaipe() {
+	public String getNaipe() {
 		return naipe;
 	}
 }
