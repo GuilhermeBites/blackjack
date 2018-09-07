@@ -4,11 +4,12 @@ import baralho.*;
 public class Player {
 	private String nickName;
 	private double saldo;
-	private boolean status;
+	private boolean status = true;
 	private int numCartas;
 	private Carta[] mao;
 	
 	public Player() {
+		mao = new Carta[21];
 		saldo = 1000.0;
 		numCartas = 0;
 	}
@@ -32,15 +33,14 @@ public class Player {
 	
 	public void receberCarta(Carta carta) {
 		if(status){
-		mao[numCartas] = new Carta();
 		mao[numCartas] = carta;
 		numCartas++;
 		}
 	}
 	
 	public void mostrarMao() {
-		for(int i=0;i<mao.length;i++) {
-			System.out.println(mao[i]);
+		for(int i=0;i<numCartas;i++) {
+			mao[i].exibirCarta();
 		}
 	}
 }

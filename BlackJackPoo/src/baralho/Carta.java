@@ -3,8 +3,7 @@ package baralho;
 public class Carta {
 	protected String valor;
 	protected String naipe;
-	protected int valor2;
-	protected int naipe2;
+	protected int valorCard;
 	
 	protected void setValor(int valor,int naipe) {
 		if(naipe == 0) this.naipe = "Copas";
@@ -12,10 +11,23 @@ public class Carta {
 		else if(naipe == 2) this.naipe = "Paus";
 		else if(naipe == 3) this.naipe = "Espada";
 		if(valor == 1) this.valor = "A";
-		else if(valor == 11) this.valor = "J";
-		else if(valor == 12) this.valor = "Q";
-		else if(valor == 13) this.valor = "K";
+		else if(valor == 11) {
+			this.valor = "J";
+			this.valorCard = 10;
+		}
+		else if(valor == 12) {
+			this.valor = "Q";
+			this.valorCard = 10;
+		}
+		else if(valor == 13) {
+			this.valor = "K";
+			this.valorCard = 10;
+		}
 		else this.valor = Integer.toString(valor);
+	}
+	
+	public void mudarAs(int novoValor) {
+		if(this.valor == "A") this.valorCard = novoValor;
 	}
 	
 	public void exibirCarta() {
