@@ -10,7 +10,10 @@ public class Carta {
 		else if(naipe == 1) this.naipe = "Ouro";
 		else if(naipe == 2) this.naipe = "Paus";
 		else if(naipe == 3) this.naipe = "Espada";
-		if(valor == 1) this.valor = "A";
+		if(valor == 1) {
+			this.valor = "A";
+			this.valorCard = 1;
+		}
 		else if(valor == 11) {
 			this.valor = "J";
 			this.valorCard = 10;
@@ -23,7 +26,10 @@ public class Carta {
 			this.valor = "K";
 			this.valorCard = 10;
 		}
-		else this.valor = Integer.toString(valor);
+		else {
+			this.valor = Integer.toString(valor);
+			this.valorCard = valor;
+		}
 	}
 	
 	public void mudarAs(int novoValor) {
@@ -38,5 +44,9 @@ public class Carta {
 	}
 	public String getNaipe() {
 		return naipe;
+	}
+	
+	public int getValorCard() {
+		return valorCard;
 	}
 }

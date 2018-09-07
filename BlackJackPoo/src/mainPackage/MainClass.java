@@ -33,6 +33,7 @@ public class MainClass {
 				players[x].receberCarta(baralho.pegarCarta());
 				players[x].receberCarta(baralho.pegarCarta());
 				players[x].mostrarMao();
+				System.out.println(players[x].getValorMao());
 			}
 		}while(op!=0);
 		
@@ -40,4 +41,6 @@ public class MainClass {
 		
 		scan.close();
 	}
+	
+	
 }

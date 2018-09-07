@@ -7,6 +7,7 @@ public class Player {
 	private boolean status = true;
 	private int numCartas;
 	private Carta[] mao;
+	private int valorMao = 0;
 	
 	public Player() {
 		mao = new Carta[21];
@@ -35,6 +36,8 @@ public class Player {
 		if(status){
 		mao[numCartas] = carta;
 		numCartas++;
+		this.valorMao += carta.getValorCard();
+		if(this.valorMao < 10) carta.mudarAs(10);
 		}
 	}
 	
@@ -42,5 +45,9 @@ public class Player {
 		for(int i=0;i<numCartas;i++) {
 			mao[i].exibirCarta();
 		}
+	}
+	
+	public int getValorMao() {
+		return valorMao;
 	}
 }
