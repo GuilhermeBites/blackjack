@@ -38,7 +38,7 @@ public class PessoaMesa {
 		mao[numCartas] = carta;
 		numCartas++;
 		this.valorMao += carta.getValorCard();
-		if(this.valorMao < 10) carta.mudarAs(11);
+		if(this.valorMao == 10) carta.mudarAs(11);
 		}
 	}
 	

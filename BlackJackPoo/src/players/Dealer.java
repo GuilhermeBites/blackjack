@@ -12,7 +12,7 @@ public class Dealer extends PessoaMesa {
 	
 	public boolean hit(Carta novaCarta) {
 		if(this.mao.length <= 1) receberCarta(novaCarta);
-		else if(this.valorMao < 15) receberCarta(novaCarta);
+		else if(this.valorMao <= 15) receberCarta(novaCarta);
 		else if(this.valorMao == 17) {
 			if(gera.nextInt(5) == 2) receberCarta(novaCarta);
 			else return false;

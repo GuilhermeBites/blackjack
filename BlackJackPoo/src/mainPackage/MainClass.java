@@ -45,3 +45,6 @@ public class MainClass {
 	
 	
 }
+
+//Corrigir erro do Dealer não receber mais de uma carta;
+//Corrigir erro de não retirar as cartas da mão anterior

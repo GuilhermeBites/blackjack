@@ -60,26 +60,42 @@ public class Jogo {
 			dealer.mostrarMao();
 			System.out.println("");
 			for(Player x : players) {
+				System.out.print(x.getNick() + " ==> ");
 				x.mostrarMao();
 				System.out.println("");
 			}
+			
+			dealer.hit(novoBaralho.pegarCarta());
+			dealer.hit(novoBaralho.pegarCarta());
+			System.out.print("Mão do Dealer ==> ");
+			dealer.mostrarMao();
+			System.out.println("");
 			
 			for(int j=0;j<numJogadores;j++) {
 				if(players[j].getValorMao() > 21) {
 					System.out.println("OPS... Você ultrapassou 21 pontos...");
 					players[j].retirarSaldo(players[j].getAposta());
-				}else if(players[j].getValorMao() > dealer.getValorMao()){
-					System.out.println("Você recebeu 3:2 da sua aposta!");
-					players[j].setAposta(players[j].getAposta()*1.5);
-					dealer.retirarSaldo(players[j].getAposta());
-				}else if(players[j].getValorMao() < dealer.getValorMao()) {
-					System.out.println("Você perdeu para o dealer!");
-					players[j].retirarSaldo(players[j].getAposta());
 					dealer.acrescentarSaldo(players[j].getAposta());
+				}else {
+					if(dealer.getValorMao() > 21) {
+						players[j].acrescentarSaldo(players[j].getAposta()*1.5);
+					}else {
+						if(players[j].getValorMao() > dealer.getValorMao()){
+							System.out.println("Você recebeu 3:2 da sua aposta!");
+							players[j].setAposta(players[j].getAposta()*1.5);
+							dealer.retirarSaldo(players[j].getAposta());
+					}else if(players[j].getValorMao() < dealer.getValorMao()) {
+						System.out.println("Você perdeu para o dealer!");
+						players[j].retirarSaldo(players[j].getAposta());
+						dealer.acrescentarSaldo(players[j].getAposta());
+					}
+					}
 				}
 			}
 			
 			if(dealer.getSaldo() <= 0) fimDeJogo = true;
+			dealer.limparMao();
+			for(Player x : players) x.limparMao();
 			
 		}while(fimDeJogo != true);
 		
