@@ -1,32 +1,22 @@
 package players;
 import baralho.Carta;
+import java.util.*;
 
-public class Dealer {
-	String name = "Dealer";
-	double pot;
-	boolean status;
-	int numCartas=0;
-	Carta[] mao;
+public class Dealer extends PessoaMesa {
+	Random gera = new Random();
 	
 	public Dealer(){
-		pot = 1000;
+		this.nome = "Dealer";
+		this.saldo = 5000;
 	}
 	
-	public void retirarSaldo(double aposta) {
-		if(this.pot < aposta) System.out.println("O jogador " + name + " não tem saldo para essa aposta!");
-		else this.pot -= aposta;
-	}
-	public void colocarSaldo(double aposta) {
-		this.pot = aposta;
-	}
-	public void receberCarta(Carta carta) {
-		mao[numCartas] = new Carta();
-		mao[numCartas] = carta;
-		numCartas++;
-	}
-	public void mostrarBaralho() {
-		for(Carta x : mao) {
-			x.exibirCarta();
+	public boolean hit(Carta novaCarta) {
+		if(this.mao.length <= 1) receberCarta(novaCarta);
+		else if(this.valorMao < 15) receberCarta(novaCarta);
+		else if(this.valorMao == 17) {
+			if(gera.nextInt(5) == 2) receberCarta(novaCarta);
+			else return false;
 		}
+		return true;
 	}
 }

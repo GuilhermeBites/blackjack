@@ -37,7 +37,7 @@ public class Carta {
 	}
 	
 	public void exibirCarta() {
-		System.out.println(valor + naipe);
+		System.out.print(valor + naipe + " ");
 	}
 	public String getValor() {
 		return valor;

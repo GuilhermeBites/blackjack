@@ -1,18 +1,19 @@
 package mainPackage;
 import java.util.*;
-import players.*;
-import baralho.*;
+//import baralho.*;
 
 public class MainClass {
 
 	public static void main(String[] args) {
-		Player[] players;
-		int op=0;
 		Scanner scan = new Scanner(System.in);
-		Baralho baralho = new Baralho();
+		//Baralho baralho = new Baralho();
+		Jogo novoJogo = new Jogo();
 		
-		baralho.embaralhar();
+		if(novoJogo.iniciarJogo()) {
+			System.out.println("O jogo finalizou!");
+		}
 		
+		/*
 		int numJogadores;
 		System.out.print("Digite o número de participantes: ");
 		numJogadores = scan.nextInt();
@@ -36,7 +37,7 @@ public class MainClass {
 				System.out.println(players[x].getValorMao());
 			}
 		}while(op!=0);
-		
+		*/
 		
 		
 		scan.close();

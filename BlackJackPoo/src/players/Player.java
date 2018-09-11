@@ -1,53 +1,18 @@
 package players;
 import baralho.*;
 
-public class Player {
-	private String nickName;
-	private double saldo;
-	private boolean status = true;
-	private int numCartas;
-	private Carta[] mao;
-	private int valorMao = 0;
+public class Player extends PessoaMesa {
 	
-	public Player() {
-		mao = new Carta[21];
-		saldo = 1000.0;
-		numCartas = 0;
+	public boolean hit(Carta novaCarta) {
+		receberCarta(novaCarta);
+		return true;
 	}
 	
-	public void setarNick(String nome) {
-		this.nickName = nome;
+	public double getAposta() {
+		return this.aposta;
 	}
-	
-	public String getNick() {
-		return nickName;
+	public void setAposta(double novaAposta) {
+		this.aposta = novaAposta;
 	}
-	
-	public void retirarSaldo(double aposta) {
-		if(this.saldo < aposta) System.out.println("O jogador " + nickName + " não tem saldo para essa aposta!");
-		else this.saldo -= aposta;
-	}
-	
-	public void acrescentarSaldo(double aposta) {
-		this.saldo += aposta;
-	}
-	
-	public void receberCarta(Carta carta) {
-		if(status){
-		mao[numCartas] = carta;
-		numCartas++;
-		this.valorMao += carta.getValorCard();
-		if(this.valorMao < 10) carta.mudarAs(10);
-		}
-	}
-	
-	public void mostrarMao() {
-		for(int i=0;i<numCartas;i++) {
-			mao[i].exibirCarta();
-		}
-	}
-	
-	public int getValorMao() {
-		return valorMao;
-	}
+
 }
